@@ -2,7 +2,7 @@
 export default {
   name: 'blog',
   title: 'Blog',
-  type: 'document', // 👈 very important
+  type: 'document',
   fields: [
     {
       name: 'title',
@@ -10,19 +10,26 @@ export default {
       title: 'Title',
     },
     {
-      name: 'content',
-      type: 'text',
-      title: 'Content',
+      title: 'Body',
+      name: 'body',
+      type: 'array',
+      of: [{type: 'block'}],
     },
     {
-      name: 'author',
-      type: 'string',
       title: 'Author',
+      name: 'author',
+      type: 'reference',
+      to: [{type: 'author'}],
     },
     {
       name: 'publishedAt',
       type: 'datetime',
-      title: 'Published At',
+      title: 'Created At',
+    },
+    {
+      name: 'blogimage',
+      title: 'Blog Image',
+      type: 'image',
     },
   ],
 }
